@@ -4,7 +4,7 @@ import Routes from '@src/navigation/RootNavigator';
 
 export default function App() {
   return (
-    <GluestackUIProvider mode="light">
+    <GluestackUIProvider mode="dark">
       <Routes />
     </GluestackUIProvider>
   );
