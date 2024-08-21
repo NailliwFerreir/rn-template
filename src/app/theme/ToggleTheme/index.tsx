@@ -1,4 +1,5 @@
-import { Switch } from "@/components/ui/switch";
+import { Button, ButtonText } from "@/components/ui/button";
+import { colorScheme } from "nativewind";
 import { create } from "zustand";
 
 type ThemeType = "light" | "dark";
@@ -9,21 +10,22 @@ type ThemeStore = {
 }
 
 export const useThemeStore = create<ThemeStore>((set) => ({
-    theme: "light",
-    setTheme: (theme: ThemeType) => set({ theme }),
+    theme: (colorScheme.get()??"light") as ThemeType,
+    setTheme: (theme: ThemeType) => {
+        colorScheme.set(theme)
+        set({ theme })
+    },
 }));
 
 export function ToggleTheme() {
     const { theme, setTheme } = useThemeStore();
-
     return (
-        <Switch 
-            size="sm"
-            value={theme === "dark"}
-            onToggle={(checked) => setTheme(checked ? "dark" : "light")}
-            trackColor={{ true: "bg-gray-900", false: "bg-gray-200" }}
-            thumbColor={"bg-white "}
-            ios_backgroundColor={"bg-gray-900"} 
-        />
+        <Button variant={'solid'} action={'primary'}
+            onPress={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+        >
+        <ButtonText>
+            {theme === 'light' ? 'Dark' : 'Light'}
+        </ButtonText>
+        </Button>
     );
 }
