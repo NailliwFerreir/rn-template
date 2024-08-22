@@ -14,16 +14,16 @@ export function TabNavigator() {
       screenOptions={{
         headerShown: false,
       }}>
-      <Tab.Screen name="Test" component={Test} />
-      <Tab.Screen name="Test2" component={Test2} />
+      <Tab.Screen name="Home" component={Test} />
+      <Tab.Screen name="Settings" component={Test2} />
     </Tab.Navigator>
   )
 }
 
-function MyTabBar({ state, descriptors, navigation }) {
+function MyTabBar({ state, descriptors, navigation }: { state: any, descriptors: any, navigation: any }) {
   return (
     <View style={{ flexDirection: 'row' }} className="bg-background-0 border-t border-background-200 h-12 items-center justify-center">
-      {state.routes.map((route, index) => {
+      {state.routes.map((route: any, index: number) => {
         const { options } = descriptors[route.key];
         const label =
           options.tabBarLabel !== undefined

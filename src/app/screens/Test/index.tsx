@@ -1,15 +1,18 @@
+import { Center } from '@/components/ui/center';
 import { VStack } from '@/components/ui/vstack';
+import { SafeAreaView } from '@src/app/components/customs/SafeAreaView';
 import { ToggleButtonTheme } from '@src/app/theme/ToggleButtonTheme';
-import { SafeAreaView } from "react-native";
-import { ToggleSwitchTheme } from '../../theme/ToggleSwitchTheme';
+import { ToggleSwitchTheme } from '@src/app/theme/ToggleSwitchTheme';
 
 export function Test() {
   return (
-    <SafeAreaView className="flex-1 justify-center items-center bg-background-0">
-      <VStack space={'md'} className='items-center'>
-      <ToggleButtonTheme />
-      <ToggleSwitchTheme />
-      </VStack>
+    <SafeAreaView>
+      <Center>
+        <VStack space={'md'} className='items-center'>
+          <ToggleButtonTheme />
+          <ToggleSwitchTheme />
+        </VStack>
+      </Center>
     </SafeAreaView>
   )
 }
