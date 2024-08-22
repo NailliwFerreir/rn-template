@@ -1,14 +1,15 @@
-import { ToggleTheme } from "@src/app/theme/ToggleTheme";
-import { useState } from "react";
+import { VStack } from '@/components/ui/vstack';
+import { ToggleButtonTheme } from '@src/app/theme/ToggleButtonTheme';
 import { SafeAreaView } from "react-native";
+import { ToggleSwitchTheme } from '../../theme/ToggleSwitchTheme';
 
 export function Test() {
-  const [showActionsheet, setShowActionsheet] = useState(false)
-  const handleClose = () => setShowActionsheet(false)
-
   return (
     <SafeAreaView className="flex-1 justify-center items-center bg-background-0">
-      <ToggleTheme />
+      <VStack space={'md'} className='items-center'>
+      <ToggleButtonTheme />
+      <ToggleSwitchTheme />
+      </VStack>
     </SafeAreaView>
   )
 }

@@ -1,5 +1,4 @@
 import { Actionsheet, ActionsheetBackdrop, ActionsheetContent, ActionsheetDragIndicator, ActionsheetDragIndicatorWrapper, ActionsheetItem, ActionsheetItemText } from "@/components/ui/actionsheet";
-import { Box } from "@/components/ui/box";
 import { Button, ButtonText } from "@/components/ui/button";
 import { useState } from "react";
 import { SafeAreaView } from "react-native";
@@ -7,7 +6,6 @@ import { SafeAreaView } from "react-native";
 export function Test2() {
   const [showActionsheet, setShowActionsheet] = useState(false)
   const handleClose = () => setShowActionsheet(false)
-
   return (
     <SafeAreaView className="flex-1 justify-center items-center bg-background-0">
       <Button onPress={() => setShowActionsheet(true)}>

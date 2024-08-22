@@ -1,6 +1,7 @@
-import { Button, ButtonText } from "@/components/ui/button";
 import { colorScheme } from "nativewind";
 import { create } from "zustand";
+
+// TODO save theme async storage
 
 type ThemeType = "light" | "dark";
 
@@ -16,16 +17,3 @@ export const useThemeStore = create<ThemeStore>((set) => ({
     set({ theme })
   },
 }));
-
-export function ToggleTheme() {
-  const { theme, setTheme } = useThemeStore();
-  return (
-    <Button variant={'solid'} action={'primary'}
-      onPress={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-    >
-      <ButtonText>
-        {theme === 'light' ? 'Dark' : 'Light'}
-      </ButtonText>
-    </Button>
-  );
-}
