@@ -1,9 +1,8 @@
+import { Button, ButtonIcon, ButtonText } from "@/components/ui/button";
+import { View } from '@/components/ui/view';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Test } from "@src/app/screens/Test";
 import { Test2 } from "@src/app/screens/Test2";
-import { View } from '@/components/ui/view'
-import { TouchableOpacity, Text } from "react-native";
-import { Button, ButtonIcon, ButtonText } from "@/components/ui/button";
 
 
 const Tab = createBottomTabNavigator()
