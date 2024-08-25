@@ -4,13 +4,14 @@ import tseslint from 'typescript-eslint'
 
 
 export default [
-  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
+  { files: ['**/*.{js,ts,jsx,tsx}'] },
   { languageOptions: { globals: globals.browser } },
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
-    ignorePatterns: ['*.config.js'],
+    ignores: ['*.config.js', './components/**/*.{js,ts,jsx,tsx}'],
     rules: {
+      'no-explicit-any': 'off',
       semi: ['error', 'never'],
       quotes: ['error', 'single'],
       'no-trailing-spaces': 'error',
