@@ -1,6 +1,6 @@
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Test } from '@src/app/screens/Test'
+import { Test } from '../app/screens/Examples/Test'
 // import { Test2 } from '@src/app/screens/Test2'
 // import { Login } from '@src/app/screens/Auth/Login'
 import { MyTabBar } from '@src/navigation/custom/MyTabBar'

@@ -9,10 +9,10 @@ export function MyTabBar({ state, descriptors, navigation }: BottomTabBarProps) 
         const { options } = descriptors[route.key]
         const label =
                     options.tabBarLabel !== undefined
-                      ? options.tabBarLabel
+                      ? options.tabBarLabel as string
                       : options.title !== undefined
                         ? options.title
-                        : route.name
+                        : route.name as string
 
         const isFocused = state.index === index
 
