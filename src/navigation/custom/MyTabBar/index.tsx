@@ -1,10 +1,16 @@
-import { View } from '@/components/ui/view'
 import { Button, ButtonIcon, ButtonText } from '@/components/ui/button'
+import { View } from '@/components/ui/view'
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 export function MyTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
+  const { left, right, bottom } = useSafeAreaInsets()
   return (
-    <View style={{ flexDirection: 'row' }} className="bg-background-0 border-t border-background-200 h-12 items-center justify-center">
+    <View style={{ flexDirection: 'row',
+      left: left,
+      right: right,
+      paddingBottom: bottom,
+    }} className="bg-background-0 border-t border-background-200 items-center justify-center pt-2">
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key]
         const label =
@@ -15,6 +21,8 @@ export function MyTabBar({ state, descriptors, navigation }: BottomTabBarProps) 
                         : route.name as string
 
         const isFocused = state.index === index
+
+        const icon = options.tabBarIcon
 
         const onPress = () => {
           const event = navigation.emit({
@@ -38,13 +46,15 @@ export function MyTabBar({ state, descriptors, navigation }: BottomTabBarProps) 
         return (
           <Button
             variant="link"
+            size='md'
             key={route.key}
             onPress={onPress}
             onLongPress={onLongPress}
             style={{ flex: 1 }}
+            className='flex-col items-center justify-center'
           >
-            <ButtonIcon />
-            <ButtonText className={`${isFocused ? 'text-background-900' : 'text-background-400'}`}
+            <ButtonIcon as={icon} color={`${isFocused ? 'text-background-900' : 'text-background-400'}`} />
+            <ButtonText className={`${isFocused ? 'text-background-900' : 'text-background-400'} text-center`}
             >
               {label}
             </ButtonText>

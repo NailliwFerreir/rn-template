@@ -9,7 +9,7 @@ export default function Routes(){
     <NavigationContainer>
       <StatusBar
         barStyle={theme === 'dark' ? 'light-content' : 'dark-content'}
-        backgroundColor={theme === 'dark' ? '#000000' : '#ffffff'}
+        backgroundColor={theme === 'dark' ? '#181719' : '#ffffff'}
       />
       <TabNavigator />
     </NavigationContainer>
