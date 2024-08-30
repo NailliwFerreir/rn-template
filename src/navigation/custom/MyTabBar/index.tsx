@@ -9,7 +9,7 @@ export function MyTabBar({ state, descriptors, navigation }: BottomTabBarProps) 
     <View style={{ flexDirection: 'row',
       left: left,
       right: right,
-      paddingBottom: bottom,
+      paddingBottom: bottom + 4,
     }} className="bg-background-0 border-t border-background-200 items-center justify-center pt-2">
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key]
@@ -53,7 +53,7 @@ export function MyTabBar({ state, descriptors, navigation }: BottomTabBarProps) 
             style={{ flex: 1 }}
             className='flex-col items-center justify-center'
           >
-            <ButtonIcon as={icon} color={`${isFocused ? 'text-background-900' : 'text-background-400'}`} />
+            <ButtonIcon as={icon} size={'md'} className={`${isFocused ? 'text-background-900' : 'text-background-400'}`} />
             <ButtonText className={`${isFocused ? 'text-background-900' : 'text-background-400'} text-center`}
             >
               {label}

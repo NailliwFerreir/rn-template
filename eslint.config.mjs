@@ -11,6 +11,7 @@ export default [
   {
     ignores: ['*.config.js', './components/**/*.{js,ts,jsx,tsx}'],
     rules: {
+      'no-unused-vars': 'error',
       'no-explicit-any': 'off',
       semi: ['error', 'never'],
       quotes: ['error', 'single'],
