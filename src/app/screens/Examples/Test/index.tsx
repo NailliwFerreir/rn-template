@@ -5,6 +5,7 @@ import { ToggleButtonTheme } from '@src/app/theme/ToggleButtonTheme'
 import { Button, ButtonText } from '@/components/ui/button'
 import ListYourPlaceModal from '@src/app/screens/Examples/Test/components/ListYourPlaceModal'
 import { useState } from 'react'
+import { Slider } from '@src/app/components/Slider'
 
 export function Test() {
   const [modalIsVisible, setModalIsVisible] = useState(false)
@@ -26,6 +27,8 @@ export function Test() {
         </ButtonText>
       </Button>
       {modalIsVisible && <ListYourPlaceModal modalVisible={modalIsVisible} setModalVisible={setModalIsVisible}/>}
+
+      <Slider useFakeData={true}/>
     </SafeAreaView>
   )
 }
