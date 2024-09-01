@@ -3,13 +3,14 @@ import { StatusBar } from 'react-native'
 import { useThemeStore } from '../app/theme/store'
 import { TabNavigator } from './TabNavigator'
 
+
 export default function Routes(){
   const { theme } = useThemeStore()
   return(
     <NavigationContainer>
       <StatusBar
         barStyle={theme === 'dark' ? 'light-content' : 'dark-content'}
-        backgroundColor={theme === 'dark' ? '#181719' : '#ffffff'}
+        backgroundColor={theme === 'dark' ? '#121212' : '#ffffff'}
       />
       <TabNavigator />
     </NavigationContainer>

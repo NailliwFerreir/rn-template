@@ -9,8 +9,8 @@ export function MyTabBar({ state, descriptors, navigation }: BottomTabBarProps) 
     <View style={{ flexDirection: 'row',
       left: left,
       right: right,
-      paddingBottom: bottom + 4,
-    }} className="bg-background-0 border-t border-background-200 items-center justify-center pt-2">
+      paddingBottom: bottom + 12,
+    }} className="bg-background-0 border-t border-background-200 items-center justify-center pt-3">
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key]
         const label =

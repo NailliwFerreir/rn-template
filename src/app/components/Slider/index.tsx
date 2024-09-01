@@ -51,6 +51,9 @@ export function Slider({ data ,useFakeData = false }: SliderProps) {
         onScroll={handleOnScroll}
         onViewableItemsChanged={handleOnViewableItemsChanged}
         viewabilityConfig={viabilityConfig}
+        initialNumToRender={2}
+        bounces={false}
+        scrollEventThrottle={16}
       />
       <Pagination
         data={useFakeData ? fakeDataSlider : data??[]}
