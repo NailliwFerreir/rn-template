@@ -11,13 +11,13 @@ export function SliderItem({ title, description, image }:SliderItemProps){
   return (
     <Box
       style={{
-        width: width - 32,
+        width: width - 28,
         height: height * 0.6
       }}
     >
       <Box className={'w-full h-96'}>
         <Image
-          className={'w-full h-full'}
+          className={'w-full h-full object-center'}
           resizeMode={'contain'}
           source={image}
           alt={title}

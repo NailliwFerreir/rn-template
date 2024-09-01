@@ -1,4 +1,5 @@
 import { SafeAreaView as SAV, View } from 'react-native'
+import React from 'react'
 
 export function SafeAreaView({ children }: {children: React.ReactNode}) {
   return (
