@@ -11,7 +11,7 @@ export function SliderItem({ title, description, image }:SliderItemProps){
   return (
     <Box
       style={{
-        width: width - 16,
+        width: width - 32,
         height: height * 0.6
       }}
     >

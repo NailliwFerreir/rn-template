@@ -28,7 +28,7 @@ const WORLD_DATA: BlogData[] = Array.from({ length: 2 },() => ({
 const MainContent = () => {
   return (
     <VStack
-      className="p-4 pb-0 md:px-10 md:pt-6 md:pb-0 h-full w-full max-w-[1500px] self-center  mb-20 md:mb-2"
+      className="pt-4 pb-0 md:px-10 md:pt-6 md:pb-0 h-full w-full max-w-[1500px] self-center  mb-20 md:mb-2"
       space="2xl"
     >
       <Input className="text-center md:hidden">
