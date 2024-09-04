@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { StatusBar } from 'react-native'
 import { useThemeStore } from '../app/theme/store'
-import { TabNavigator } from './TabNavigator'
+import { MainStackNavigator } from '@src/navigation/MainStackNavigator'
 
 
 export default function Routes(){
@@ -12,7 +12,7 @@ export default function Routes(){
         barStyle={theme === 'dark' ? 'light-content' : 'dark-content'}
         backgroundColor={theme === 'dark' ? '#121212' : '#ffffff'}
       />
-      <TabNavigator />
+      <MainStackNavigator/>
     </NavigationContainer>
   )
 }
