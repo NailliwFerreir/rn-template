@@ -6,10 +6,10 @@ import { Test } from '../app/screens/Examples/Test'
 import { MyTabBar } from '@src/navigation/custom/MyTabBar'
 // import { Register } from '@src/app/screens/Auth/Register'
 import { SettingsIcon, GlobeIcon } from '@/components/ui/icon'
-import { ForgotPassword } from '@src/app/screens/Auth/ForgotPassword'
+// import { ForgotPassword } from '@src/app/screens/Auth/ForgotPassword'
 import { Feed } from '@src/app/screens/Examples/Feed'
 import { HomeIcon } from 'lucide-react-native'
-import { Chat } from '@src/app/screens/Examples/Chat'
+// import { Chat } from '@src/app/screens/Examples/Chat'
 import { Register } from '@src/app/screens/Auth/Register'
 
 // Exemplo de navagação por tabs
@@ -25,7 +25,7 @@ export function TabNavigator() {
       <Tab.Screen name="Home" component={Test} options={{
         tabBarIcon: HomeIcon
       }} />
-      <Tab.Screen name="Feed" component={Chat} options={{
+      <Tab.Screen name="Feed" component={Feed} options={{
         tabBarIcon: GlobeIcon
       }} />
       <Tab.Screen name="Settings" component={Register} options={{

@@ -1,18 +1,16 @@
-import { Box } from '@/components/ui/box'
 import { HStack } from '@/components/ui/hstack'
-import { ArrowLeftIcon, ArrowUpIcon, ChevronLeftIcon, Icon, SearchIcon } from '@/components/ui/icon'
+import { ArrowUpIcon, ChevronLeftIcon, Icon } from '@/components/ui/icon'
 import { Text } from '@/components/ui/text'
 import { VStack } from '@/components/ui/vstack'
-import { Heading } from '@/components/ui/heading'
 import { ScrollView } from '@/components/ui/scroll-view'
-import { Input, InputField, InputIcon, InputSlot } from '@/components/ui/input'
-import { Image } from '@/components/ui/image'
 import { SafeAreaView } from '@src/app/components/customs/SafeAreaView'
 import { Avatar, AvatarImage } from '@/components/ui/avatar'
-import { ImageURISource, KeyboardAvoidingView, StatusBar } from 'react-native'
-import { Button, ButtonIcon } from '@/components/ui/button'
+import { ImageURISource, KeyboardAvoidingView } from 'react-native'
+import { Button } from '@/components/ui/button'
 import { Textarea, TextareaInput } from '@/components/ui/textarea'
 import { SafeAreaView as SAV } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import { useThemeStore } from '@src/app/theme/store'
 
 interface BlogData {
     bannerUri: string;
@@ -30,7 +28,7 @@ const WORLD_DATA: BlogData[] = Array.from({ length: 2 },() => ({
   publishedDate: 'May 15, 2023'
 }))
 
-const MainContent = () => {
+const MainContent = ({ navToApp }: { navToApp: () => void}) => {
   return (
     <VStack>
       <HStack space="2xl" className="h-full w-full flex-1">
@@ -67,9 +65,7 @@ const MainContent = () => {
               placeholder="Your text goes here..."
             />
           </Textarea>
-          <Button variant={'solid'} size={'sm'} className={'rounded-full w-10 h-10 self-center justify-center items-center mr-2'} onPress={()=> {
-            console.log('teste')
-          }}>
+          <Button variant={'solid'} size={'sm'} className={'rounded-full w-10 h-10 self-center justify-center items-center mr-2'} onPress={navToApp}>
             <Icon as={ArrowUpIcon} className={'text-background-100'}/>
           </Button>
         </HStack>
@@ -78,9 +74,9 @@ const MainContent = () => {
   )
 }
 const Header = () => {
+  const { theme } = useThemeStore()
   return (
-    <SAV style={{ margin: 0 }}>
-      <StatusBar />
+    <SAV style={{ margin: 0, backgroundColor: theme === 'dark' ?  '#414040': '#f2f1f1' }}>
       <HStack className="w-full px-4 py-4 bg-background-100">
         <Button variant={'link'} size={'sm'} className={'absolute left-4 mt-2 items-center justify-center'}>
           <Icon as={ChevronLeftIcon} className={'text-background-950'} />
@@ -102,11 +98,15 @@ const Header = () => {
 }
 
 export const Chat = () => {
+  const { navigate } = useNavigation()
+
+  const navToApp = () => navigate('App')
+
   return (
     <>
       <Header />
       <SafeAreaView  >
-        <MainContent />
+        <MainContent navToApp={navToApp}/>
       </SafeAreaView>
     </>
   )
