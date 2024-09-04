@@ -58,7 +58,7 @@ const MainContent = ({ navToApp }: { navToApp: () => void}) => {
           </VStack>
         </ScrollView>
       </HStack>
-      <KeyboardAvoidingView behavior={'position'} keyboardVerticalOffset={30}>
+      <KeyboardAvoidingView behavior={'position'} keyboardVerticalOffset={68}>
         <HStack className="rounded-xl border border-background-400 bg-background-0 mb-4 p-1 mt-1">
           <Textarea isReadOnly={false} isInvalid={false} isDisabled={false} className="flex-1 border-0 h-20">
             <TextareaInput
