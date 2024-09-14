@@ -6,11 +6,12 @@ import { ScrollView } from '@/components/ui/scroll-view'
 import { SafeAreaView } from '@src/app/components/customs/SafeAreaView'
 import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import { ImageURISource, KeyboardAvoidingView, Platform } from 'react-native'
-import { Button } from '@/components/ui/button'
+import { Button, ButtonIcon } from '@/components/ui/button'
 import { Textarea, TextareaInput } from '@/components/ui/textarea'
 import { SafeAreaView as SAV } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { useThemeStore } from '@src/app/theme/store'
+import { Airplay, MessageSquareIcon, SendIcon } from 'lucide-react-native'
 
 interface BlogData {
     bannerUri: string;
@@ -60,13 +61,13 @@ const MainContent = ({ navToApp }: { navToApp: () => void}) => {
       </HStack>
       <KeyboardAvoidingView behavior={Platform.OS === 'ios'?'position': undefined} keyboardVerticalOffset={68}>
         <HStack className="rounded-xl border border-background-400 bg-background-0 mb-4 p-1 mt-1">
-          <Textarea isReadOnly={false} isInvalid={false} isDisabled={false} className="flex-1 border-0 h-20">
+          <Textarea isReadOnly={false} isInvalid={false} isDisabled={false} className="flex-1 border-0 h-12">
             <TextareaInput
               placeholder="Your text goes here..."
             />
           </Textarea>
-          <Button variant={'solid'} size={'sm'} className={'rounded-full w-10 h-10 self-center justify-center items-center mr-2'} onPress={navToApp}>
-            <Icon as={ArrowUpIcon} className={'text-background-100'}/>
+          <Button variant={'solid'} size={'sm'} className={'rounded-full  self-center flex justify-center items-center mr-2'} onPress={navToApp}>
+            <ButtonIcon as={SendIcon} className={'text-background-0 items-center justify-center text-center self-center place-self-center '}/>
           </Button>
         </HStack>
       </KeyboardAvoidingView>
@@ -105,7 +106,7 @@ export const Chat = () => {
   return (
     <>
       <Header />
-      <SafeAreaView  >
+      <SafeAreaView>
         <MainContent navToApp={navToApp}/>
       </SafeAreaView>
     </>
