@@ -1,17 +1,17 @@
-import { HStack } from '@/components/ui/hstack'
-import { ArrowUpIcon, ChevronLeftIcon, Icon } from '@/components/ui/icon'
-import { Text } from '@/components/ui/text'
-import { VStack } from '@/components/ui/vstack'
-import { ScrollView } from '@/components/ui/scroll-view'
-import { SafeAreaView } from '@src/app/components/customs/SafeAreaView'
 import { Avatar, AvatarImage } from '@/components/ui/avatar'
-import { ImageURISource, KeyboardAvoidingView, Platform } from 'react-native'
 import { Button, ButtonIcon } from '@/components/ui/button'
+import { HStack } from '@/components/ui/hstack'
+import { ChevronLeftIcon, Icon } from '@/components/ui/icon'
+import { ScrollView } from '@/components/ui/scroll-view'
+import { Text } from '@/components/ui/text'
 import { Textarea, TextareaInput } from '@/components/ui/textarea'
-import { SafeAreaView as SAV } from 'react-native'
+import { VStack } from '@/components/ui/vstack'
+import { getKeyboardVerticalOffset } from '@/src/utils'
 import { useNavigation } from '@react-navigation/native'
+import { SafeAreaView } from '@src/app/components/customs/SafeAreaView'
 import { useThemeStore } from '@src/app/theme/store'
-import { Airplay, MessageSquareIcon, SendIcon } from 'lucide-react-native'
+import { SendIcon } from 'lucide-react-native'
+import { ImageURISource, KeyboardAvoidingView, Platform, SafeAreaView as SAV } from 'react-native'
 
 interface BlogData {
     bannerUri: string;
@@ -59,7 +59,7 @@ const MainContent = ({ navToApp }: { navToApp: () => void}) => {
           </VStack>
         </ScrollView>
       </HStack>
-      <KeyboardAvoidingView behavior={Platform.OS === 'ios'?'position': undefined} keyboardVerticalOffset={68}>
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios'?'padding': undefined} keyboardVerticalOffset={getKeyboardVerticalOffset()}>
         <HStack className="rounded-xl border border-background-400 bg-background-0 mb-4 p-1 mt-1">
           <Textarea isReadOnly={false} isInvalid={false} isDisabled={false} className="flex-1 border-0 h-12">
             <TextareaInput

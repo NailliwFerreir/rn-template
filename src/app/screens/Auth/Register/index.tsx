@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-import { HStack } from '@/components/ui/hstack'
-import { VStack } from '@/components/ui/vstack'
-import { Heading } from '@/components/ui/heading'
-import { Text } from '@/components/ui/text'
-import { Link, LinkText } from '@/components/ui/link'
+import { Button, ButtonText } from '@/components/ui/button'
+import {
+  Checkbox,
+  CheckboxIcon,
+  CheckboxIndicator,
+  CheckboxLabel,
+} from '@/components/ui/checkbox'
 import {
   FormControl,
   FormControlError,
@@ -12,13 +13,8 @@ import {
   FormControlLabel,
   FormControlLabelText,
 } from '@/components/ui/form-control'
-import { Input, InputField, InputIcon, InputSlot } from '@/components/ui/input'
-import {
-  Checkbox,
-  CheckboxIcon,
-  CheckboxIndicator,
-  CheckboxLabel,
-} from '@/components/ui/checkbox'
+import { Heading } from '@/components/ui/heading'
+import { HStack } from '@/components/ui/hstack'
 import {
   ArrowLeftIcon,
   CheckIcon,
@@ -26,15 +22,19 @@ import {
   EyeOffIcon,
   Icon,
 } from '@/components/ui/icon'
-import { Button, ButtonText } from '@/components/ui/button'
-import { Keyboard } from 'react-native'
-import { useForm, Controller } from 'react-hook-form'
-import { z } from 'zod'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { AlertTriangle } from 'lucide-react-native'
+import { Input, InputField, InputIcon, InputSlot } from '@/components/ui/input'
+import { Link, LinkText } from '@/components/ui/link'
 import { Pressable } from '@/components/ui/pressable'
+import { Text } from '@/components/ui/text'
+import { VStack } from '@/components/ui/vstack'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from '@src/app/components/customs/SafeAreaView'
+import { AlertTriangle } from 'lucide-react-native'
+import React, { useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
+import { Keyboard } from 'react-native'
+import { z } from 'zod'
 
 const signUpSchema = z.object({
   email: z.string().min(1, 'Email is required').email(),
@@ -98,7 +98,7 @@ export function Register() {
 
   return (
     <SafeAreaView>
-      <VStack className="w-full" space="md">
+      <VStack className="w-full max-w-sm mx-auto" space="md">
         <VStack className="md:items-center" space="md">
           <Pressable
             onPress={goBack}
