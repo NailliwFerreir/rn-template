@@ -66,7 +66,11 @@ export function Login(){
       handleSubmit(onSubmit)()
     }
 
-    const { goBack } = useNavigation()
+    const { goBack, navigate } = useNavigation()
+
+    const sendToRegister = () => {
+      navigate('Register')
+    }
 
     return (
       <KeyboardAwareScrollView
@@ -183,7 +187,7 @@ export function Login(){
                   <Divider className="w-1/5" />
                 </HStack>
 
-                <Button className="w-full rounded-lg h-12" action={'default'}>
+                <Button className="w-full rounded-lg h-12" action={'default'} onPress={sendToRegister}>
                   <ButtonText className="font-medium">Cadastre-se</ButtonText>
                 </Button>
               </VStack>

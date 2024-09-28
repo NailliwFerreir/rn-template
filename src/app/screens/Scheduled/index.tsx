@@ -6,6 +6,7 @@ import { Image } from '@/components/ui/image'
 import { ScrollView } from '@/components/ui/scroll-view'
 import { Text } from '@/components/ui/text'
 import { VStack } from '@/components/ui/vstack'
+import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from '@src/app/components/customs/SafeAreaView'
 
 interface BlogData {
@@ -24,7 +25,10 @@ const WORLD_DATA: BlogData[] = Array.from({ length: 2 },() => ({
   publishedDate: 'Hoje às 14:00',
 }))
 
-const MainContent = () => {
+
+const MainContent = ({
+  navigate,
+}) => {
   return (
     <VStack
       className="pt-4 pb-0 md:px-10 md:pt-6 md:pb-0 h-full w-full max-w-[1500px] self-center  mb-20 md:mb-2"
@@ -77,7 +81,9 @@ const MainContent = () => {
         size="lg"
         action='primary'
         className="absolute right-4 bottom-4 h-14 rounded-full"
-        onPress={() => {}}
+        onPress={() => {
+          navigate('Login')
+        }}
       >
         <ButtonText>
         Criar um novo agendamento
@@ -88,9 +94,11 @@ const MainContent = () => {
 }
 
 export const Scheduled = () => {
+  const { navigate } = useNavigation()
+
   return (
     <SafeAreaView >
-      <MainContent />
+      <MainContent navigate={navigate} />
     </SafeAreaView>
   )
 }
